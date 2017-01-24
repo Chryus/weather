@@ -4,7 +4,7 @@ export default React.createClass({
   render() {
     return (
       <div>
-        It's 85 degrees, sunny and humid
+        {this.props.children}
       </div>
     )
   }
