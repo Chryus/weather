@@ -1,11 +1,10 @@
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import webpack from 'webpack'
-
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/app/index.html',
   filename: 'index.html',
   inject: 'body'
 })
+var webpack = require('webpack')
 
 module.exports = {
   entry: [
