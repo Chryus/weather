@@ -1,5 +1,7 @@
 import React from 'react'
 import Prompt from '../components/Prompt'
+import Nav from '../components/Nav'
+
 
 class PromptContainer extends React.Component {
   constructor(props) {
@@ -29,15 +31,21 @@ class PromptContainer extends React.Component {
 
   render() {
     return (
-      <Prompt 
-        header={this.props.route.header}
-        onUpdateLocation={this.handleUpdateLocation}
-        onSubmitLocation={this.handleSubmitLocation}
-        location={this.state.location} />
+      <div>
+        <Nav
+          onUpdateLocation={this.handleUpdateLocation}
+          onSubmitLocation={this.handleSubmitLocation}
+          location={this.state.location}
+        />
+        <Prompt 
+          header={this.props.route.header}
+          onUpdateLocation={this.handleUpdateLocation}
+          onSubmitLocation={this.handleSubmitLocation}
+          location={this.state.location} />
+      </div>
     );
   }
 }
-
 
 PromptContainer.contextTypes = {
   router: React.PropTypes.object
