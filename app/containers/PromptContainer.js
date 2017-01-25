@@ -17,7 +17,7 @@ class PromptContainer extends React.Component {
 
   handleSubmitLocation(event) {
     event.preventDefault();
-    
+
     this.context.router.push({
       pathname: '/forecast',
       query: {
@@ -28,7 +28,7 @@ class PromptContainer extends React.Component {
 
   render() {
     return (
-      <div className="jumbotron col-sm-6 col-sm-offset-3 text-center transparentBg">
+      <div className="jumbotron col-sm-6 col-sm-offset-3 text-center transparentBg space">
         <h1>{this.props.route.header}</h1>
         <div className="col-sm-12">
           <form onSubmit={this.handleSubmitLocation}>
