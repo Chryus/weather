@@ -9,7 +9,7 @@ export default React.createClass({
           <div className="container-fluid">
             <form className="navbar-form navbar-right" role="search">
               <div className="form-group">
-                <input type="text" className="form-control" placeholder="Search"></input>
+                <input type="text" className="form-control" placeholder="Get Weather"></input>
               </div>
               <button type="submit" className="btn btn-default">Submit</button>
             </form>
