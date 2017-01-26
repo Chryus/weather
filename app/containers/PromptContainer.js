@@ -1,14 +1,18 @@
 import React from 'react'
 import Prompt from '../components/Prompt'
 import Nav from '../components/Nav'
+import OpenWeatherHelpers from '../utils/OpenWeatherHelpers'
 
 class PromptContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.originalLocation = 'Chicago, IL'
-    this.state = { location: this.originalLocation};
+    this.originalLocation = 'Chicago'
     this.handleUpdateLocation = this.handleUpdateLocation.bind(this);
     this.handleSubmitLocation = this.handleSubmitLocation.bind(this);
+    this.state = { 
+      location: this.originalLocation,
+      cityForecastData: []
+    };
   }
 
   handleUpdateLocation(event) {
@@ -19,13 +23,21 @@ class PromptContainer extends React.Component {
 
   handleSubmitLocation(event) {
     event.preventDefault();
+    OpenWeatherHelpers.getLocationForecast(this.state.location)
+    .then((cityForecastData) => {
+      debugger
+      console.log(cityForecastData);
 
-    this.context.router.push({
-      pathname: '/forecast',
-      query: {
-        location: this.state.location
-      }
-    });
+      this.setState({
+        cityForecastData: cityForecastData
+      })
+    })
+    // this.context.router.push({
+    //   pathname: '/forecast',
+    //   state: {
+    //     cityForecastData: this.state.cityForecastData
+    //   }
+    // });
   }
 
   render() {
