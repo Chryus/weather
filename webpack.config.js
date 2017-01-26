@@ -1,10 +1,11 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/app/index.html',
   filename: 'index.html',
   inject: 'body'
-})
-var webpack = require('webpack')
+});
+const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: [
@@ -26,6 +27,12 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin(),
     HtmlWebpackPluginConfig
-  ] : [HtmlWebpackPluginConfig],
+  ] : [
+    HtmlWebpackPluginConfig,
+    new Dotenv({
+      // path: './.env', // if not simply .env 
+      // safe: false // lets load the .env.example file as well 
+    })
+  ],
 
 }

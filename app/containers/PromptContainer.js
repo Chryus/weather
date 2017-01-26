@@ -2,7 +2,6 @@ import React from 'react'
 import Prompt from '../components/Prompt'
 import Nav from '../components/Nav'
 
-
 class PromptContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +37,7 @@ class PromptContainer extends React.Component {
           location={this.state.location}
         />
         <Prompt 
-          header={this.props.route.header}
+          header="Enter a City and State"
           onUpdateLocation={this.handleUpdateLocation}
           onSubmitLocation={this.handleSubmitLocation}
           location={this.state.location} />
