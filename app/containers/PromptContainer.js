@@ -23,21 +23,17 @@ class PromptContainer extends React.Component {
 
   handleSubmitLocation(event) {
     event.preventDefault();
+    
     OpenWeatherHelpers.getLocationForecast(this.state.location)
-    .then((cityForecastData) => {
-      debugger
-      console.log(cityForecastData);
-
-      this.setState({
-        cityForecastData: cityForecastData
+      .then((cityForecastData) => {
+        console.log(cityForecastData);
+        this.context.router.push({
+          pathname: '/forecast',
+          state: {
+            cityForecastData: cityForecastData
+          }
+        });
       })
-    })
-    // this.context.router.push({
-    //   pathname: '/forecast',
-    //   state: {
-    //     cityForecastData: this.state.cityForecastData
-    //   }
-    // });
   }
 
   render() {

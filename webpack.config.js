@@ -29,10 +29,7 @@ module.exports = {
     HtmlWebpackPluginConfig
   ] : [
     HtmlWebpackPluginConfig,
-    new Dotenv({
-      // path: './.env', // if not simply .env 
-      // safe: false // lets load the .env.example file as well 
-    })
+    new Dotenv()
   ],
 
 }
