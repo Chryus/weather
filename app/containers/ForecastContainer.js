@@ -8,7 +8,9 @@ class ForecastContainer extends React.Component {
 
   render() {
     return (
-      <Forecast header="forecast"/>
+      <Forecast 
+        header="forecast"
+        cityForecastData={this.props.location.state.cityForecastData}/>
     )
   }
 }

@@ -1,12 +1,12 @@
 import axios from 'axios'
 
 const key = process.env.WEATHER_KEY
-const params = "&APPID=" + key;
+const keyParams = "&APPID=" + key;
 
 console.log(key);
 
 module.exports = ({
   getLocationForecast: function(location) {
-    return axios.get("http://api.openweathermap.org/data/2.5/forecast?q=" + location + ",us&mode=json" + params);
+    return axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + location + "&type=accurate&" + keyParams + "&cnt=5");
   }
 });
