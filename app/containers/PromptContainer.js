@@ -1,7 +1,6 @@
 import React from 'react'
 import Prompt from '../components/Prompt'
 import Nav from '../components/Nav'
-import OpenWeatherHelpers from '../utils/OpenWeatherHelpers'
 
 class PromptContainer extends React.Component {
   constructor(props) {
@@ -11,7 +10,6 @@ class PromptContainer extends React.Component {
     this.handleSubmitLocation = this.handleSubmitLocation.bind(this);
     this.state = { 
       location: this.originalLocation,
-      cityForecastData: []
     };
   }
 
@@ -23,17 +21,9 @@ class PromptContainer extends React.Component {
 
   handleSubmitLocation(event) {
     event.preventDefault();
-    
-    OpenWeatherHelpers.getLocationForecast(this.state.location)
-      .then((cityForecastData) => {
-        console.log(cityForecastData);
-        this.context.router.push({
-          pathname: '/forecast',
-          state: {
-            cityForecastData: cityForecastData
-          }
-        });
-      })
+    this.context.router.push({
+      pathname: '/forecast/' + this.state.location
+    });
   }
 
   render() {

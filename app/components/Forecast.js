@@ -1,4 +1,5 @@
 import React from 'react'
+import Loading from './Loading'
 const PropTypes = React.PropTypes
 
 function puke(object) {
@@ -6,7 +7,12 @@ function puke(object) {
 }
 
 function Forecast(props) {
-  const list = props.cityForecastData['data']['list']
+  if (props.isLoading === true) {
+    return (
+      <Loading/>
+    )
+  }
+  const list = props.forecastData['data']['list']
   const icons = list.map((obj) =>
     <div className="col-xs-6 col-md-3">
       <a href="#" className="thumbnail">
@@ -31,8 +37,9 @@ function Forecast(props) {
 }
 
 Forecast.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
   header: PropTypes.string.isRequired,
-  cityForecastData: PropTypes.object.isRequired
+  forecastData: PropTypes.object.isRequired
 }
 
 

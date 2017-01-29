@@ -8,7 +8,7 @@ module.exports = (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={PromptContainer}></IndexRoute>
-      <Route path="forecast" component={ForecastContainer}></Route>
+      <Route path="forecast/:city" component={ForecastContainer}></Route>
     </Route>
   </Router>
 )
