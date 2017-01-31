@@ -1,4 +1,5 @@
 import React from 'react'
+import lodash from 'lodash'
 import Forecast from '../components/forecast'
 import OpenWeatherHelpers from '../utils/OpenWeatherHelpers'
 
@@ -25,7 +26,7 @@ class ForecastContainer extends React.Component {
     return (
       <Forecast 
         isLoading={this.state.isLoading} 
-        header="forecast"
+        header={_.capitalize(this.props.params.city) + " forecast"}
         forecastData={this.state.forecastData}/>
     )
   }
