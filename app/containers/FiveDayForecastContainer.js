@@ -3,7 +3,7 @@ import lodash from 'lodash'
 import Forecast from '../components/forecast'
 import OpenWeatherHelpers from '../utils/OpenWeatherHelpers'
 
-class ForecastContainer extends React.Component {
+class FiveDayForecastContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,4 +32,4 @@ class ForecastContainer extends React.Component {
   }
 }
 
-export default ForecastContainer;
+export default FiveDayForecastContainer;
