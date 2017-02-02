@@ -6,7 +6,6 @@ import OpenWeatherHelpers from '../utils/OpenWeatherHelpers'
 class FiveDayForecastContainer extends React.Component {
   constructor(props) {
     super(props);
-    console.log("HERE")
     this.state = {
       isLoading: true,
       forecastData: {}
@@ -16,8 +15,16 @@ class FiveDayForecastContainer extends React.Component {
   componentDidMount() {
     OpenWeatherHelpers.getCityForecast(this.props.params.city)
       .then((forecastData) => {
-        debugger
-        console.log(forecastData)
+        this.setState({
+          isLoading: false,
+          forecastData: forecastData
+        });
+      })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    OpenWeatherHelpers.getCityForecast(nextProps.params.city)
+      .then((forecastData) => {
         this.setState({
           isLoading: false,
           forecastData: forecastData
