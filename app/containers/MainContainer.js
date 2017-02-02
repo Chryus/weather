@@ -1,8 +1,8 @@
 import React from 'react'
-import Prompt from '../components/Prompt'
+import Nav from '../components/Nav'
 import EventHelpers from '../utils/EventHelpers'
 
-class PromptContainer extends React.Component {
+class MainContainer extends React.Component {
   constructor(props) {
     super(props);
     this.handleUpdateLocation = EventHelpers.handleUpdateLocation.bind(this);
@@ -15,14 +15,14 @@ class PromptContainer extends React.Component {
   render() {
     return (
       <div>
-        <Prompt 
-          header="Enter a City and State"
+        <Nav 
           onUpdateLocation={this.handleUpdateLocation}
           onSubmitLocation={this.handleSubmitLocation}
           location={this.state.location} />
+        {this.props.children}
       </div>
     );
   }
 }
 
-export default PromptContainer
+export default MainContainer

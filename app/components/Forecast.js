@@ -1,7 +1,6 @@
 import React from 'react'
 import Loading from './Loading'
 import { Link } from 'react-router'
-import moment from 'moment'
 const PropTypes = React.PropTypes
 
 function puke(object) {
@@ -21,7 +20,6 @@ function ImageThumbnail(props) {
     <Link to='/'  className="thumbnail">
       <img src={"http://openweathermap.org/img/w/" + props['forecast']['weather'][0]['icon'] + ".png"} key={props['forecast']['dt'].toString()} height="100" width="100"/>
     </Link>
-    <p>{props['forecast']['dt']}</p>
     <FormattedDate timestamp={ts}/>
   </div>
   )
@@ -35,6 +33,7 @@ function Forecast(props) {
     )
   }
   const forecastList = props.forecastData['data']['list'];
+  console.log(forecastList);
 
   const icons = forecastList.map((obj) =>
     <ImageThumbnail forecast={obj}/> 

@@ -13,7 +13,7 @@ function Nav(props) {
               type="text"
               value={props.location}
               className="form-control" 
-              placeholder="Chicago, IL" 
+              placeholder={props.location} 
               onChange={props.onUpdateLocation}>
             </input>
             </div>
