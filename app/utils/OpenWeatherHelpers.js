@@ -8,7 +8,7 @@ module.exports = ({
     return axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + location + "&type=accurate&" + keyParams + "&cnt=5");
   },
 
-  getOneDayForecast: function(location) {
-    return axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + location + "&type=accurate&" + keyParams + "&cnt=1");
+  getOneDayForecast: function(location, timestamp) {
+    return axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + location + "&dt=" + timestamp + "&type=accurate&" + keyParams + "&cnt=1");
   }
 });
