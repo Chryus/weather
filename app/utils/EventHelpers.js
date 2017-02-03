@@ -12,6 +12,6 @@ module.exports = ({
 
   handleSubmitLocation: function(event) {
     event.preventDefault();
-    browserHistory.push('/forecast/' + this.state.location);
+    browserHistory.push('/forecast/' + _.lowerFirst(this.state.location));
   }
 });

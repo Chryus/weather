@@ -12,6 +12,7 @@ class OneDayForecastContainer extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     OpenWeatherHelpers.getOneDayForecast(dt)
       .then((forecastData) => {
         this.setState({

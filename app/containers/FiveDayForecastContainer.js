@@ -1,6 +1,5 @@
 import React from 'react'
-import lodash from 'lodash'
-import Forecast from '../components/forecast'
+import FiveDayForecast from '../components/FiveDayForecast'
 import OpenWeatherHelpers from '../utils/OpenWeatherHelpers'
 
 class FiveDayForecastContainer extends React.Component {
@@ -15,12 +14,13 @@ class FiveDayForecastContainer extends React.Component {
 
   handleThumbnailClick(event) {
     event.preventDefault();
-    debugger
+    let timestamp = event.target.getAttribute('data')
+    let date = new Date(timestamp * 1000);
+    let day = date.toLocaleString('en-US', { weekday: 'long' })
     this.context.router.push({
-      pathname: '/forecast/' + this.props.params.city + '/day',
+      pathname: '/forecast/' + _.lowerFirst(this.props.params.city) + '/' + _.lowerFirst(day),
       query: {
-        location: this.props.params.city,
-        dt: 'day'
+        dt: timestamp
       }
     });
 
@@ -50,7 +50,7 @@ class FiveDayForecastContainer extends React.Component {
 
   render() {
     return (
-      <Forecast
+      <FiveDayForecast
         onThumbnailClick={this.handleThumbnailClick}
         isLoading={this.state.isLoading} 
         header={_.capitalize(this.props.params.city) + " forecast"}
@@ -58,5 +58,9 @@ class FiveDayForecastContainer extends React.Component {
     )
   }
 }
+
+FiveDayForecastContainer.contextTypes = {
+  router: React.PropTypes.object
+};
 
 export default FiveDayForecastContainer;

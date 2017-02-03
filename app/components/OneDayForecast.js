@@ -1,5 +1,5 @@
 import React from 'react'
-import Forecast from './Forecast'
+import FiveDayForecast from './FiveDayForecast'
 
 function OneDayForecast(props) {
   if (props.isLoading === true) {

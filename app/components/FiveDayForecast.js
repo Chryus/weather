@@ -10,7 +10,7 @@ function puke(object) {
 function FormattedDate(props) {
   let options = { weekday: 'long', month: 'short', day: 'numeric' };
   let date = new Date(props['timestamp'] * 1000);
-  return <h2 className='text-center'>{date.toLocaleString('en-US', options)}</h2>
+  return <h2 data={props.timestamp} className='text-center'>{date.toLocaleString('en-US', options)}</h2>
 }
 
 function ImageThumbnail(props) {
@@ -20,7 +20,8 @@ function ImageThumbnail(props) {
       <Link className="thumbnail">
         <img 
           src={"http://openweathermap.org/img/w/" + props['forecast']['weather'][0]['icon'] + ".png"} 
-          key={props['forecast']['dt'].toString()} 
+          key={ts}
+          data={ts}
           height="100" 
           width="100"/>
       </Link>
@@ -30,7 +31,7 @@ function ImageThumbnail(props) {
 }
 
 
-function Forecast(props) {
+function FiveDayForecast(props) {
   if (props.isLoading === true) {
     return (
       <Loading/>
@@ -57,12 +58,12 @@ function Forecast(props) {
   )
 }
 
-Forecast.propTypes = {
+FiveDayForecast.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   header: PropTypes.string.isRequired,
   forecastData: PropTypes.object.isRequired,
-  handleThumbnailClick: PropTypes.func.isRequired
+  onThumbnailClick: PropTypes.func.isRequired
 }
 
 
-export default Forecast;  
+export default FiveDayForecast;  
