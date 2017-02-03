@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+const PropTypes = React.PropTypes
 
 function puke(object) {
   return <pre>{JSON.stringify(object, null, ' ')}</pre>
@@ -26,6 +27,11 @@ function ImageThumbnail(props) {
       <FormattedDate timestamp={ts}/>
     </div>
   )
+}
+
+ImageThumbnail.propTypes = {
+  onThumbnailClick: PropTypes.func,
+  forecastData: PropTypes.func.isRequired,
 }
 
 export default ImageThumbnail;
