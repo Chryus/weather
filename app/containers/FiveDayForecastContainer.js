@@ -10,10 +10,24 @@ class FiveDayForecastContainer extends React.Component {
       isLoading: true,
       forecastData: {}
     };
+    this.handleThumbnailClick = this.handleThumbnailClick.bind(this)
+  }
+
+  handleThumbnailClick(event) {
+    event.preventDefault();
+    debugger
+    this.context.router.push({
+      pathname: '/forecast/' + this.props.params.city + '/day',
+      query: {
+        location: this.props.params.city,
+        dt: 'day'
+      }
+    });
+
   }
 
   componentDidMount() {
-    OpenWeatherHelpers.getCityForecast(this.props.params.city)
+    OpenWeatherHelpers.getFiveDayForecast(this.props.params.city)
       .then((forecastData) => {
         this.setState({
           isLoading: false,
@@ -23,18 +37,21 @@ class FiveDayForecastContainer extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    OpenWeatherHelpers.getCityForecast(nextProps.params.city)
-      .then((forecastData) => {
-        this.setState({
-          isLoading: false,
-          forecastData: forecastData
-        });
-      })
+    if (this.props.params.city != nextProps.params.city) {
+      OpenWeatherHelpers.getFiveDayForecast(nextProps.params.city)
+        .then((forecastData) => {
+          this.setState({
+            isLoading: false,
+            forecastData: forecastData
+          });
+        })
+    }
   }
 
   render() {
     return (
-      <Forecast 
+      <Forecast
+        onThumbnailClick={this.handleThumbnailClick}
         isLoading={this.state.isLoading} 
         header={_.capitalize(this.props.params.city) + " forecast"}
         forecastData={this.state.forecastData}/>

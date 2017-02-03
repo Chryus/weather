@@ -16,12 +16,16 @@ function FormattedDate(props) {
 function ImageThumbnail(props) {
   let ts = props['forecast']['dt']
   return (
-    <div className="col-xs-6 col-md-3">
-    <Link to='/'  className="thumbnail">
-      <img src={"http://openweathermap.org/img/w/" + props['forecast']['weather'][0]['icon'] + ".png"} key={props['forecast']['dt'].toString()} height="100" width="100"/>
-    </Link>
-    <FormattedDate timestamp={ts}/>
-  </div>
+    <div className="col-xs-6 col-md-3" onClick={props.onThumbnailClick}>
+      <Link className="thumbnail">
+        <img 
+          src={"http://openweathermap.org/img/w/" + props['forecast']['weather'][0]['icon'] + ".png"} 
+          key={props['forecast']['dt'].toString()} 
+          height="100" 
+          width="100"/>
+      </Link>
+      <FormattedDate timestamp={ts}/>
+    </div>
   )
 }
 
@@ -33,10 +37,9 @@ function Forecast(props) {
     )
   }
   const forecastList = props.forecastData['data']['list'];
-  console.log(forecastList);
 
   const icons = forecastList.map((obj) =>
-    <ImageThumbnail forecast={obj}/> 
+    <ImageThumbnail onThumbnailClick={props.onThumbnailClick} forecast={obj}/> 
   );
   return (
     <div>
@@ -57,7 +60,8 @@ function Forecast(props) {
 Forecast.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   header: PropTypes.string.isRequired,
-  forecastData: PropTypes.object.isRequired
+  forecastData: PropTypes.object.isRequired,
+  handleThumbnailClick: PropTypes.func.isRequired
 }
 
 
