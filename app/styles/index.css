@@ -5,3 +5,7 @@
 .transparentBg {
   background: transparent;
 }
+
+.thumbnail {
+  border: 0px;
+}

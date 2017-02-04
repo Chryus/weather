@@ -15,7 +15,7 @@ function FormattedDate(props) {
 function ImageThumbnail(props) {
   let ts = props['forecast']['dt']
   return (
-    <div className="col-xs-6 col-md-3" onClick={props.onThumbnailClick}>
+    <div>
       <Link className="thumbnail">
         <img 
           src={"http://openweathermap.org/img/w/" + props['forecast']['weather'][0]['icon'] + ".png"} 
