@@ -16,8 +16,7 @@ function OneDayForecast(props) {
     )
   }
 
-  const forecastList = props.forecastData.data.list;
-  console.log(forecastList);
+  const forecastList = props.forecastData.data.list[0];
 
   return (
     <div>
@@ -29,12 +28,18 @@ function OneDayForecast(props) {
           <div className="row">
             <ImageThumbnail 
               forecast={forecastList}/> 
-          </div> 
+          </div>
+             <ul>
+                <li>{props.forecastData.data.city.name}</li>
+                <li>{_.capitalize(forecastList.weather[0].description)}</li>
+                <li>High: {forecastList.temp.max}</li>
+                <li>Low: {forecastList.temp.min}</li>
+                <li>Humidity: {forecastList.humidity}%</li>
+              </ul>
         </div>
       </div>
     </div>
   )
-  //return puke(props.forecastData)
 }
 
 OneDayForecast.propTypes = {

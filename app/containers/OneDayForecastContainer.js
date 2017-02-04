@@ -12,7 +12,6 @@ class OneDayForecastContainer extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     OpenWeatherHelpers.getOneDayForecast(this.props.params.city, this.props.location.query.dt)
       .then((forecastData) => {
         this.setState({
