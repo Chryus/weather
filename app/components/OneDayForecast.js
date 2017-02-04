@@ -29,8 +29,8 @@ function OneDayForecast(props) {
            <ul className="list-unstyled">
               <li>{props.forecastData.data.city.name}</li>
               <li>{_.capitalize(forecastList.weather[0].description)}</li>
-              <li>High: {forecastList.temp.max}</li>
-              <li>Low: {forecastList.temp.min}</li>
+              <li>High: {Math.round(forecastList.temp.max)}</li>
+              <li>Low: {Math.round(forecastList.temp.min)}</li>
               <li>Humidity: {forecastList.humidity}%</li>
             </ul>
           </div>
