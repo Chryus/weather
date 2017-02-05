@@ -1,5 +1,15 @@
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 100;
+  font-size: 34px;
+}
+
 .space {
   margin-top: 25px;
+}
+
+.bottom-space {
+  margin-bottom: 45px;
 }
 
 .transparentBg {
