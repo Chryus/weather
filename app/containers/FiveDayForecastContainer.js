@@ -14,13 +14,17 @@ class FiveDayForecastContainer extends React.Component {
 
   handleThumbnailClick(event) {
     event.preventDefault();
-    let timestamp = event.target.getAttribute('data')
+    let index = event.target.closest("[data]").getAttribute('data');
+    let forecastData = this.state.forecastData.data.list[index];
+    let timestamp = forecastData.dt;
     let date = new Date(timestamp * 1000);
     let day = date.toLocaleString('en-US', { weekday: 'long' })
     this.context.router.push({
       pathname: '/forecast/' + _.lowerFirst(this.props.params.city) + '/' + _.lowerFirst(day),
       query: {
-        dt: timestamp
+        header: _.capitalize(this.props.params.city) + " forecast",
+        timestamp: timestamp,
+        forecastData: JSON.stringify(forecastData)
       }
     });
 

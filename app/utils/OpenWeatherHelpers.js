@@ -5,10 +5,6 @@ const keyParams = "&APPID=" + key;
 
 module.exports = ({
   getFiveDayForecast: function(location) {
-    return axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + location + "&type=accurate&" + keyParams + "&cnt=5");
-  },
-
-  getOneDayForecast: function(location, timestamp) {
-    return axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + location + "&dt=" + timestamp + "&type=accurate&units=imperial&" + keyParams + "&cnt=1");
+    return axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + location + "&type=accurate&units=imperial&" + keyParams + "&cnt=5");
   }
 });

@@ -1,6 +1,5 @@
 import React from 'react'
 import OneDayForecast from '../components/OneDayForecast'
-import OpenWeatherHelpers from '../utils/OpenWeatherHelpers'
 
 class OneDayForecastContainer extends React.Component {
   constructor(props) {
@@ -12,18 +11,17 @@ class OneDayForecastContainer extends React.Component {
   }
 
   componentDidMount() {
-    OpenWeatherHelpers.getOneDayForecast(this.props.params.city, this.props.location.query.dt)
-      .then((forecastData) => {
-        this.setState({
-          isLoading: false,
-          forecastData: forecastData
-        });
-      })
+    console.log(JSON.parse(this.props.location.query.forecastData))
+    this.setState({
+      isLoading: false,
+      forecastData: JSON.parse(this.props.location.query.forecastData)
+    });
   }
 
   render() {
     return (
-      <OneDayForecast 
+      <OneDayForecast
+        timestamp={this.props.location.query.timestamp}
         isLoading={this.state.isLoading} 
         header={_.capitalize(this.props.params.city) + " forecast"}
         forecastData={this.state.forecastData}/>

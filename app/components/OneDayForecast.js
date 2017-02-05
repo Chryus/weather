@@ -16,22 +16,19 @@ function OneDayForecast(props) {
     )
   }
 
-  const forecastList = props.forecastData.data.list[0];
-
   return (
-
     <div>
       <div className="jumbotron col-sm-6 col-sm-offset-3 text-center transparentBg space">
-        <ImageThumbnail forecast={forecastList}/>
+        <ImageThumbnail forecastData={props.forecastData}/>
 
         <div className="col-sm-12">
           <div className="col-sm-4 col-sm-offset-4">
            <ul className="list-unstyled">
-              <li>{props.forecastData.data.city.name}</li>
-              <li>{_.capitalize(forecastList.weather[0].description)}</li>
-              <li>High: {Math.round(forecastList.temp.max)}</li>
-              <li>Low: {Math.round(forecastList.temp.min)}</li>
-              <li>Humidity: {forecastList.humidity}%</li>
+              <li>{props.header}</li>
+              <li>{_.capitalize(props.forecastData.weather[0].description)}</li>
+              <li>High: {Math.round(props.forecastData.temp.max)}</li>
+              <li>Low: {Math.round(props.forecastData.temp.min)}</li>
+              <li>Humidity: {props.forecastData.humidity}%</li>
             </ul>
           </div>
         </div>
@@ -43,7 +40,7 @@ function OneDayForecast(props) {
 OneDayForecast.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   header: PropTypes.string.isRequired,
-  forecastData: PropTypes.object.isRequired,
+  forecastData: PropTypes.object.isRequired
 }
 
 

@@ -8,30 +8,27 @@ function puke(object) {
 
 function FormattedDate(props) {
   let options = { weekday: 'long', month: 'short', day: 'numeric' };
-  let date = new Date(props['timestamp'] * 1000);
-  return <h2 data={props.timestamp} className='text-center'>{date.toLocaleString('en-US', options)}</h2>
+  let date = new Date(props.timestamp * 1000);
+  return <h2 className='text-center'>{date.toLocaleString('en-US', options)}</h2>
 }
 
 function ImageThumbnail(props) {
-  let ts = props['forecast']['dt']
   return (
     <div>
       <Link className="thumbnail">
         <img 
-          src={"http://openweathermap.org/img/w/" + props['forecast']['weather'][0]['icon'] + ".png"} 
-          key={ts}
-          data={ts}
+          src={"http://openweathermap.org/img/w/" + props.forecastData.weather[0].icon + ".png"} 
           height="100" 
           width="100"/>
       </Link>
-      <FormattedDate timestamp={ts}/>
+      <FormattedDate timestamp={props.forecastData.dt}/>
     </div>
   )
 }
 
 ImageThumbnail.propTypes = {
   onThumbnailClick: PropTypes.func,
-  forecastData: PropTypes.func.isRequired,
+  forecastData: PropTypes.obj,
 }
 
 export default ImageThumbnail;

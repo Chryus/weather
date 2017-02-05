@@ -9,11 +9,11 @@ function FiveDayForecast(props) {
       <Loading/>
     )
   }
-  const forecastList = props.forecastData['data']['list'];
+  const forecastList = props.forecastData.data.list;
 
-  const icons = forecastList.map((obj) =>
-    <div className="col-xs-6 col-md-3" onClick={props.onThumbnailClick}>
-      <ImageThumbnail forecast={obj}/>
+  const icons = forecastList.map((obj, index) =>
+    <div data={index} key={index} className="col-xs-6 col-md-3" onClick={props.onThumbnailClick}>
+      <ImageThumbnail forecastData={obj} />
     </div>
   );
   return (
