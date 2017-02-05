@@ -27,8 +27,7 @@ function ImageThumbnail(props) {
 }
 
 ImageThumbnail.propTypes = {
-  onThumbnailClick: PropTypes.func,
-  forecastData: PropTypes.obj,
+  forecastData: PropTypes.obj
 }
 
 export default ImageThumbnail;

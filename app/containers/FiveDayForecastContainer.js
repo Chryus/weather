@@ -14,11 +14,11 @@ class FiveDayForecastContainer extends React.Component {
 
   handleThumbnailClick(event) {
     event.preventDefault();
-    let index = event.target.closest("[data]").getAttribute('data');
-    let forecastData = this.state.forecastData.data.list[index];
-    let timestamp = forecastData.dt;
-    let date = new Date(timestamp * 1000);
-    let day = date.toLocaleString('en-US', { weekday: 'long' })
+    const index = event.target.closest("[data]").getAttribute('data');
+    const forecastData = this.state.forecastData.data.list[index];
+    const timestamp = forecastData.dt;
+    const date = new Date(timestamp * 1000);
+    const day = date.toLocaleString('en-US', { weekday: 'long' })
     this.context.router.push({
       pathname: '/forecast/' + _.lowerFirst(this.props.params.city) + '/' + _.lowerFirst(day),
       query: {
@@ -57,7 +57,7 @@ class FiveDayForecastContainer extends React.Component {
       <FiveDayForecast
         onThumbnailClick={this.handleThumbnailClick}
         isLoading={this.state.isLoading} 
-        header={_.capitalize(this.props.params.city) + " forecast"}
+        header={_.startCase(this.props.params.city)}
         forecastData={this.state.forecastData}/>
     )
   }

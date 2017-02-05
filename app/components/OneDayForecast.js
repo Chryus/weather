@@ -20,7 +20,6 @@ function OneDayForecast(props) {
     <div>
       <div className="jumbotron col-sm-6 col-sm-offset-3 text-center transparentBg space">
         <ImageThumbnail forecastData={props.forecastData}/>
-
         <div className="col-sm-12">
           <div className="col-sm-4 col-sm-offset-4">
            <ul className="list-unstyled">
