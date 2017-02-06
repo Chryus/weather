@@ -19,16 +19,16 @@ function OneDayForecast(props) {
 
   return (
     <div>
-      <div className="jumbotron col-sm-6 col-sm-offset-3 text-center transparentBg space">
+      <div className="jumbotron col-sm-6 col-sm-offset-3 text-center transparentBg">
         <ImageThumbnail forecastData={props.forecastData}/>
         <div className="col-sm-10">
           <div className="col-sm-6 col-sm-offset-4">
-           <ul className="list-unstyled">
+           <ul className="list-unstyled bottom-space">
               <li>{props.header}</li>
-              <li>{_.capitalize(props.forecastData.weather[0].description)}</li>
-              <li>High: {Math.round(props.forecastData.temp.max)}</li>
-              <li>Low: {Math.round(props.forecastData.temp.min)}</li>
-              <li>Humidity: {props.forecastData.humidity}%</li>
+              <li>{props.forecastData.weather[0].description}</li>
+              <li>high: {Math.round(props.forecastData.temp.max)}</li>
+              <li>low: {Math.round(props.forecastData.temp.min)}</li>
+              <li>humidity: {props.forecastData.humidity}%</li>
             </ul>
           </div>
         </div>

@@ -22,7 +22,7 @@ class FiveDayForecastContainer extends React.Component {
     this.context.router.push({
       pathname: '/forecast/' + _.lowerFirst(this.props.params.city) + '/' + _.lowerFirst(day),
       query: {
-        header: _.capitalize(this.props.params.city) + " forecast",
+        header: this.props.params.city,
         timestamp: timestamp,
         forecastData: JSON.stringify(forecastData)
       }
@@ -57,7 +57,7 @@ class FiveDayForecastContainer extends React.Component {
       <FiveDayForecast
         onThumbnailClick={this.handleThumbnailClick}
         isLoading={this.state.isLoading} 
-        header={_.startCase(this.props.params.city)}
+        header={this.props.params.city}
         forecastData={this.state.forecastData}/>
     )
   }

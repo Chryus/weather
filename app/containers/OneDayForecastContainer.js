@@ -23,7 +23,7 @@ class OneDayForecastContainer extends React.Component {
       <OneDayForecast
         timestamp={this.props.location.query.timestamp}
         isLoading={this.state.isLoading} 
-        header={_.capitalize(this.props.params.city)}
+        header={this.props.params.city}
         forecastData={this.state.forecastData}/>
     );
   }

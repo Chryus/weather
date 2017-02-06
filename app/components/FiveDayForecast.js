@@ -19,7 +19,7 @@ function FiveDayForecast(props) {
   );
   return (
     <div>
-      <div className="jumbotron col-sm-6 col-sm-offset-3 text-center transparentBg space">
+      <div className="jumbotron col-sm-6 col-sm-offset-3 text-center transparentBg">
         <h1>{props.header}</h1>
         <p>Select a day</p>
       </div>
