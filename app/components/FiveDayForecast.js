@@ -1,6 +1,7 @@
 import React from 'react'
 import Loading from './Loading'
 import ImageThumbnail from './ImageThumbnail'
+import forecast from '../styles/forecast.css'
 const PropTypes = React.PropTypes
 
 function FiveDayForecast(props) {
@@ -20,6 +21,7 @@ function FiveDayForecast(props) {
     <div>
       <div className="jumbotron col-sm-6 col-sm-offset-3 text-center transparentBg space">
         <h1>{props.header}</h1>
+        <p>Select a day</p>
       </div>
       <div>
         <div className="container">

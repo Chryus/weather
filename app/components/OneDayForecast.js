@@ -2,6 +2,7 @@ import React from 'react'
 import FiveDayForecast from './FiveDayForecast'
 import Loading from './Loading'
 import ImageThumbnail from './ImageThumbnail'
+import forecast from '../styles/forecast.css'
 
 const PropTypes = React.PropTypes
 
@@ -20,8 +21,8 @@ function OneDayForecast(props) {
     <div>
       <div className="jumbotron col-sm-6 col-sm-offset-3 text-center transparentBg space">
         <ImageThumbnail forecastData={props.forecastData}/>
-        <div className="col-sm-12">
-          <div className="col-sm-4 col-sm-offset-4">
+        <div className="col-sm-10">
+          <div className="col-sm-6 col-sm-offset-4">
            <ul className="list-unstyled">
               <li>{props.header}</li>
               <li>{_.capitalize(props.forecastData.weather[0].description)}</li>

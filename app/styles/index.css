@@ -8,14 +8,6 @@ body {
   margin-top: 25px;
 }
 
-.bottom-space {
-  margin-bottom: 45px;
-}
-
 .transparentBg {
   background: transparent;
-}
-
-.thumbnail {
-  border: 0px;
 }

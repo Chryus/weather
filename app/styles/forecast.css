@@ -1,0 +1,28 @@
+h1 {
+  font-size: 65px;
+  color: #333;
+  font-weight: 100;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 30px;
+  color: #333;
+  font-weight: 100;
+}
+
+.jumbotron p {
+  font-size: 30px;
+  color: #333;
+  font-weight: 100;
+}
+
+.thumbnail {
+  border: 0px;
+}
+
+.bottom-space {
+  margin-bottom: 45px;
+}
