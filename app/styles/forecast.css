@@ -7,7 +7,7 @@ h1 {
   margin-bottom: 30px;
 }
 
-h2 {
+.forecast-header {
   font-size: 30px;
   color: #333;
   font-weight: 100;

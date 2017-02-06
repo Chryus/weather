@@ -7,6 +7,7 @@ function Nav(props) {
     <div>
       <nav className="nav navbar-default">
         <div className="container-fluid">
+          <h2 className="navbar-header navbar-left">Weather</h2>
           <form className="navbar-form navbar-right" role="search" onSubmit={props.onSubmitLocation}>
             <div className="form-group">
             <input 
