@@ -18,7 +18,7 @@ function Nav(props) {
               onChange={props.onUpdateLocation}>
             </input>
             </div>
-            <button type="submit" className="btn btn-default btn-success">Submit</button>
+            <button type="submit" className="btn btn-default btn-success">Get Weather</button>
           </form>
         </div>
       </nav>
