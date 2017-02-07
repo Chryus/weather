@@ -4,10 +4,6 @@ body {
   font-size: 34px;
 }
 
-.background-pattern {
-  background-image: url('../images/pattern.svg');
-}
-
 .space {
   margin-top: 25px;
 }
