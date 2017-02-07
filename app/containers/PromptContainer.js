@@ -1,6 +1,7 @@
 import React from 'react'
 import Prompt from '../components/Prompt'
 import EventHelpers from '../utils/EventHelpers'
+import prompt from '../styles/prompt.css'
 
 class PromptContainer extends React.Component {
   constructor(props) {
